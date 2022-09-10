@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://localhost/store/css/registro.css">
+  <link rel="stylesheet" href="https://localhost/store/css/nomalize.css">
+  <title>Tienda Tola</title>
+</head>
+
+<body>
+  <div class="container">
+    <form action="../php/registro.php" method="post" class="userlog" id="formulario">
+      <div class="container__background"></div>
+      <div class="container__section">
+
+        <h1 class="title">Registro Clientes</h1>
+        <div class="form__section">
+          <label>Usuario</label>
+          <input type="text" name="usuario" required />
+        </div>
+        <div class="form__section">
+          <label>Contraseña</label>
+          <input type="password" name="password" required>
+        </div>
+        <div class=" form__section">
+          <label>Año de Nacimiento</label>
+          <input type="text" name="age" required>
+        </div>
+        <div class="form__section lineal">
+          <label>Genero:</label>
+          <select id="selector1" name="genero" required>
+            <option>Maculino</option>
+            <option>Femenino</option>
+          </select>
+        </div>
+        <div class="form__section lineal">
+          <label>Tipo Cliente:</label>
+          <select name="tipoc" id="selector" selected required>
+            <option onclick="ocultar();">Frecuente</option>
+            <option onclick="mostrarEmpresa();">Coorporativo</option>
+            <option onclick="ocultar();">Tercera Edad</option>
+            <option onclick="mostrar();">Gestante</option>
+          </select>
+        </div>
+        <div class="form__section business" id="business">
+          <label>Empresa:</label>
+          <input type="text" name="empresa" />
+        </div>
+        <div class="form__section lineal hijos" id="gestante">
+          <label class="child">Cantidad Hijos:</label>
+          <input id="hijos" name="sons" type="number" max="10" min="1" />
+        </div>
+        <div class="form__section">
+          <input type="submit" value="Registrarse" class="boton" />
+        </div>
+      </div>
+  </div>
+  </form>
+
+  <script>
+
+    function mostrar() {
+      document.getElementById('gestante').style.display = 'block';
+      document.getElementById('business').style.display = 'none';
+    }
+
+    function ocultar() {
+      document.getElementById('gestante').style.display = 'none';
+      document.getElementById('business').style.display = 'none';
+    }
+
+    function mostrarEmpresa() {
+      document.getElementById('business').style.display = 'block';
+    }
+
+  </script>
+</body>
+
+</html>

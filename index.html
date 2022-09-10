@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Css-->
+    <link rel="stylesheet" href="https://localhost/store/css/index.css">
+    <link rel="stylesheet" href="https://localhost/store/css/nomalize.css">
+    <!--Bootstrap Icons-->
+    <link rel="stylesheet" href="node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <title>Tienda Tola</title>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <form class="form" action="https://localhost/store/php/ingreso.php" method="post">
+            <span class="title">Iniciar Sesión</span>
+            <div class="container__usersection">
+                <span>Usuario</span>
+                <div class="usersection__user">
+                    <i class="bi bi-person"></i>
+                    <input class="" type="text" name="user" placeholder="Ingresar Usuario">
+                </div>
+                <span>Contraseña</span>
+                <div class="usersection__password">
+                    <i class="bi bi-lock"></i>
+                    <input class="" type="password" name="clave" placeholder="Ingresar Contraseña">
+                </div>
+                <div class="usersection__forgotp">
+                    <span><a href="#">Olvido su contraseña?</a></span>
+                </div>
+                <div class="loginbtn">
+                    <input type="submit" value="INGRESAR">
+                </div>
+                <div class="register">
+                    <span>No Tiene Cuenta?</span>
+                    <span><a href="https://localhost/store/html/registro.html">Registrarse</a></span>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+</html>
