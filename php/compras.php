@@ -10,6 +10,17 @@
   $client = $_SESSION['tipoc'] ;
   $company = $_SESSION['empresa'] ;
   $sons = $_SESSION['sons'];
+
+
+  if($client == 'Frecuente'){
+    $iva = 0;
+  }else if($client == 'Coorporativo'){
+    $iva = 19;
+  }else if($client == 'Tercera Edad'){
+    $iva = 0;
+  }else if($client == 'Gestante'){
+    $iva = 9.5;
+  }
  
 ?>
 
@@ -54,7 +65,7 @@
       <thead>
           <th>Producto</th>
           <th>Cantidad</th>
-          <th>Total</th>
+          <th>Precio </th>
       </thead>
       
       <tbody id="comida">
@@ -63,17 +74,17 @@
     </table>
     <div class="resultado">
         <label>Subtotal</label>
-        <label id="result">$150000</label>
+        <label id="result" name="subtotal"></label>
     </div>
     <hr>
     <div class="resultado">
         <label>Iva</label>
-        <label id="result">19%</label>
-    </div>
+        <label id="result" class="iva" name="iva"><?php echo $iva.'%' ?></label>
+    </div
     <hr>
     <div class="resultado">
         <label>Total</label>
-        <label id="result" class="total"></label>
+        <label id="result" class="total" name="total"></label>
     </div>
     <hr>
     <input class="pagar" type="submit" value="Pagar Ahora"/>

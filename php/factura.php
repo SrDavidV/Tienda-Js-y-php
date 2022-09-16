@@ -1,7 +1,17 @@
 <?php
+   session_start();
+   
+   $varsesion = $_SESSION['usuario'];
+   $password = $_SESSION['password'];
+   $nacimiento = $_SESSION['age'];
+   $gender = $_SESSION['genero'] ;
+   $client = $_SESSION['tipoc'] ;
+   $company = $_SESSION['empresa'] ;
+   $sons = $_SESSION['sons'];
 
-
-
+  $subtotal = $_POST['subtotal'];
+  $total = $_POST['total'];
+  $iva = $_POST['iva'];
 
 ?>
 
@@ -11,9 +21,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://localhost/store/css/factura.css">
   <link rel="stylesheet" href="https://localhost/store/css/nomalize.css">
-  <link rel="stylesheet" href="https://localhost/store/factura.css">
+  <link rel="stylesheet" href="/store/factura.css">
  
   <title>Tienda Tola</title>
 </head>
@@ -23,7 +32,7 @@
     <div class="factura" id="factura">
     <div class="profile">
       <img class ="userimg" src="https://localhost/store/assets/maleuser.jpg" alt="userimage" />
-      <span>Carlos Martinez</span>
+      <span><?php echo $varsesion?></span>
     </div>
       <div class="factura__section">
         <span>Edad: </span>
@@ -41,7 +50,7 @@
         <span>Subtotal: </span>
         <div class="factura__info">
         <i class="bi bi-cart-check"></i>
-        <span>60000</span>
+        <span><?php echo $subtotal ?></span>
         </div>
       </div>
     <div class="factura__section" id="sons">
@@ -61,7 +70,7 @@
       <div class="factura__section">
         <span>Iva cobrado: </span>
         <div class="factura__info">
-        <span>0</span>
+        <span><?php echo $iva ?></span>
         </div>
       </div>
       <div class="factura__section">
@@ -74,7 +83,7 @@
       <div class="factura__section">
         <span>Total: </span>
         <div class="factura__info">
-        <span>5000</span>
+        <span><?php echo $total ?></span>
         </div>
       </div>
     </div>

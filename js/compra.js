@@ -20,12 +20,21 @@ function addToCartClicked(event) {
 
 function addItemToShoppingCart(itemTitle, itemPrice) {
 
-  const shoppingContainer = document.querySelector('#comida');
-
+  const elementsTitle = shoppingContainer.getElementsByClassName('titulo');
+  for (let i = 0; i < elementsTitle.length; i++) {
+    if (elementsTitle[i].innerHTML === itemTitle) {
+      let elementQuantity = elementsTitle[i].parentElement.querySelector('.cantidad');
+      elementQuantity.value++;
+      updateShoppingCartTotal();
+      return;
+    }
+  }
   const shoppingCartRow = document.createElement('tr');
+  shoppingCartRow.classList.add('carrito');
+
   const shoppingCartContent = `
 
-      <tr class="carritos">
+      <tr>
           <td class="titulo">${itemTitle}</td>
           <td><input class="cantidad" type="number" min="1" value="1"/></td>
           <td class="product_price" id="precio">${itemPrice}</td>
@@ -48,20 +57,24 @@ function updateShoppingCartTotal() {
   let total = 0;
 
   //seleccionamos el total del carrito
+  const shoppingCartSubtotal = document.querySelector('#result');
+
   const shoppingCartTotal = document.querySelector('.total');
 
-  const shoppingCartItems = document.querySelectorAll('#comida');
+  const shoppingCartItems = document.querySelectorAll('.carrito');
 
-  console.log(shoppingCartItems)
+  const shoppingCartIva = document.querySelector('.iva');
+
+  const Iva = Number(shoppingCartIva.textContent.replace('%', ''));
+
 
 
   shoppingCartItems.forEach(shoppingCartItem => {
 
     const shoppingCartItemPriceElement = shoppingCartItem.querySelector(".product_price");
-    console.log(shoppingCartItemPriceElement)
+
 
     const shoppingCartItemPrice = Number(shoppingCartItemPriceElement.textContent.replace('$', ''));
-    console.log(shoppingCartItemPrice);
 
     const shoppingCartItemQuantityElement = shoppingCartItem.querySelector('.cantidad');
 
@@ -71,15 +84,17 @@ function updateShoppingCartTotal() {
 
 
     total = total + shoppingCartItemPrice * shoppingCartItemQuanitity;
+    totalConIva = (total * Iva) / 100;
+    totalCompleto = total + totalConIva;
 
   });
 
-  shoppingCartTotal.innerHTML = `${total}`;
+  shoppingCartSubtotal.innerHTML = `${total}`;
+  shoppingCartTotal.innerHTML = `${totalCompleto}`;
 }
 
 function removeShoppingCartItem(event) {
   const buttonClicked = event.target;
-  console.log(buttonClicked);
   buttonClicked.closest('tr').remove();
   updateShoppingCartTotal();
 }
