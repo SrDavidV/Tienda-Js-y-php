@@ -32,7 +32,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://localhost/store/css/nomalize.css">
-     <!--Css-->  
+    <!--Css-->  
     <link rel="stylesheet" href="https://localhost/store/css/nomalize.css">
     <link rel="stylesheet" href="https://localhost/store/css/compras.css">
    <!--Bootstrap Icons-->
@@ -81,7 +81,7 @@
         <label>Iva</label>
         <label id="result" class="iva" name="iva"><?php echo $iva.'%' ?></label>
     </div
-    <hr>
+    <hr/>
     <div class="resultado">
         <label>Total</label>
         <label id="result" class="total" name="total"></label>
